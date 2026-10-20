@@ -6,7 +6,7 @@ import kotlinx.coroutines.CancellationException
 
 class PokemonRepository(val api: PokemonApi) {
     suspend fun getPokemons(): Result<List<Pokemon>> = try {
-        Result.success(api.getPokemons())
+        Result.success(api.getPokemons().pokemons)
     } catch (e: CancellationException) {
         throw e
     } catch (e: Exception) {
